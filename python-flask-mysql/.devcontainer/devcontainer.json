@@ -1,0 +1,30 @@
+{
+    // Metadata name for the devcontainer
+    "name": "Python-Flask-MySQL devcontainer",
+
+    // Build context specification, in this case using docker-compose.yml
+    "dockerComposeFile": "../docker-compose.yml",
+    "service": "web",
+
+    // Mapping of devcontainer workspace to /app for apache server to run developer environment
+    "workspaceFolder": "/app",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind"
+    ],
+
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            // list of goto extensions installed for seamless IDE experience
+            "extensions": [
+                "ms-python.python",
+                "ms-python.debugpy",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+
+    // Uncomment the following line to use another user instead of asura within the devcontainer (such as root)
+    // "remoteUser": ""
+}

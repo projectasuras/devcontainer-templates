@@ -1,0 +1,41 @@
+{
+    // Metadata name for the devcontainer
+    "name": "PHP devcontainer",
+
+    // Build context specification, in this case using Dockerfile
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+
+    // Starts apache2 server on start of devcontainer
+    "postStartCommand": "apache2ctl start",
+
+    // Mapping of devcontainer workspace to /var/www/html for apache server to run developer environment
+    "workspaceFolder": "/var/www/html",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/var/www/html,type=bind"
+    ],
+
+    // apache2 server runs on port 80, so mapping devcontainer port 80 to host 8080
+    "appPort": ["8080:80"],
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "esbenp.prettier-vscode",
+                "xdebug.php-debug",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "php.validate.executablePath": "/usr/local/bin/php",
+                "php.validate.run": "onType"
+            }
+        }
+    },
+
+    // Using asura for our devcontainer
+    "remoteUser": "asura"
+}

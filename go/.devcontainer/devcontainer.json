@@ -1,0 +1,29 @@
+{
+    // Metadata name for the devcontainer
+    "name": "Golang devcontainer",
+
+    // Build context specification, in this case using Dockerfile
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+    // Installation of delve package to support debugging within IDE
+    "onCreateCommand": "go install -v github.com/go-delve/delve/cmd/dlv@latest",
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            // list of goto extensions installed for seamless IDE experience
+            "extensions": [
+                "golang.go",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+
+    // To enable port forwarding from within devcontainer to host
+    // "appPort": ["host_port:container_port"],
+
+    // Uncomment the following line to use another user instead of asura within the devcontainer (such as root)
+    // "remoteUser": ""
+}

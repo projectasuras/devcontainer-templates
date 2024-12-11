@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    command: tail -F non_existing_file # replace this infinitely running command with your own command (required because the container should be always in running state for devcontainer to work)
+  db:
+    build:
+      context: mysql/
+      dockerfile: Dockerfile
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: projectasuras
+      MYSQL_DATABASE: asura_db
+      MYSQL_USER: projectasuras
+      MYSQL_PASSWORD: projectasuras
+    ports:
+      - "3306:3306"
+
+networks:
+  dev-network:

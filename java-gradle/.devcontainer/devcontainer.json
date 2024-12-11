@@ -1,0 +1,31 @@
+{
+    // Metadata name for the devcontainer
+    "name": "Java-Gradle devcontainer",
+
+    // Build context specification, in this case using Dockerfile
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+        // "target": "" // Dockerfile target for development environment
+    },
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            // list of goto extensions installed for seamless IDE experience
+            "extensions": [
+                "vscjava.vscode-java-pack",
+                "vscjava.vscode-gradle",
+                "naco-siren.gradle-language",
+                "redhat.fabric8-analytics", // Vulnerability Detection Extension by Red Hat
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    }
+
+    // To enable port forwarding from within devcontainer to host
+    // "appPort": ["host_port:container_port"],
+
+    // Uncomment the following line to use another user instead of asura within the devcontainer (such as root)
+    // "remoteUser": ""
+}

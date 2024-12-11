@@ -1,0 +1,41 @@
+{
+    // Metadata name for the devcontainer
+    "name": "PHP-MySQL devcontainer",
+
+    // Path to docker-compose.yml
+    "dockerComposeFile": "../docker-compose.yml",
+
+    // Mandatory service field required in case of dockerComposeFile
+    "service": "web",
+
+    // // Build context specification, in this case using Dockerfile
+    // "build": {
+    //     "dockerfile": "../Dockerfile",
+    //     "context": ".."
+    // },
+
+    // Mapping of devcontainer workspace to /var/www/html for apache server to run developer environment
+    "workspaceFolder": "/var/www/html",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/var/www/html,type=bind"
+    ],
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bmewburn.vscode-intelephense-client",
+                "esbenp.prettier-vscode",
+                "xdebug.php-debug",
+                "ms-azuretools.vscode-docker"
+            ],
+            "settings": {
+                "php.validate.executablePath": "/usr/local/bin/php",
+                "php.validate.run": "onType"
+            }
+        }
+    },
+
+    // Using asura for our devcontainer
+    "remoteUser": "asura"
+}

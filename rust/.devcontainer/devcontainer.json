@@ -1,0 +1,33 @@
+{
+    // Metadata name for the devcontainer
+    "name": "Rust devcontainer",
+
+    // Build context specification, in this case using Dockerfile
+    "build": {
+        "dockerfile": "../Dockerfile",
+        "context": ".."
+    },
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            // list of goto extensions installed for seamless IDE experience
+            "extensions": [
+                "rust-lang.rust-analyzer",
+                "ms-vscode.cpptools",
+                "ms-azuretools.vscode-docker"
+            ],
+            // rust specific settings
+            "settings": {
+                "rust-analyzer.checkOnSave.command": "clippy",
+                "rust-analyzer.cargo.loadOutDirsFromCheck": true
+            }
+        }
+    }
+
+    // To enable port forwarding from within devcontainer to host
+    // "appPort": ["host_port:container_port"],
+
+    // Uncomment the following line to use another user instead of asura within the devcontainer (such as root)
+    // "remoteUser": ""
+}
