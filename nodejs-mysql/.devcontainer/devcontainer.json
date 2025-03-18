@@ -1,0 +1,34 @@
+{
+    // Metadata name for the devcontainer
+    "name": "NodeJS-MySQL devcontainer",
+
+    // Path to docker-compose.yml
+    "dockerComposeFile": "../docker-compose.yml",
+
+    // Mandatory service field required in case of dockerComposeFile
+    "service": "web",
+
+    // Mapping of devcontainer workspace to /var/www/html for apache server to run developer environment
+    "workspaceFolder": "/app",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/app,type=bind"
+    ],
+
+    // IDE specific customizations
+    "customizations": {
+        "vscode": {
+            // list of goto extensions installed for seamless IDE experience
+            "extensions": [
+                "dbaeumer.vscode-eslint",
+                "xabikos.JavaScriptSnippets",
+                "christian-kohler.npm-intellisense",
+                "christian-kohler.path-intellisense",
+                "Orta.vscode-jest",
+                "ms-azuretools.vscode-docker"
+            ]
+        }
+    },
+
+    // Using asura for our devcontainer
+    "remoteUser": "asura"
+}
